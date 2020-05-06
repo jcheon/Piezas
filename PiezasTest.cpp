@@ -57,42 +57,65 @@ TEST(PiezasTest, drop_ofb)
 
 TEST(PiezasTest, checkDrop)
 {
-  Piezas obj;
-  Piece test;
-  Piece test2;
-  Piece test3;
-  Piece test4;
-  test = obj.dropPiece(0);
-  test2 = obj.dropPiece(1);
-  test3 = obj.dropPiece(2);
-  test4 = obj.dropPiece(3);
-  ASSERT_TRUE(test == ' ' && test2 == ' ' && test3 == ' ' && test4 == ' ');
+	Piezas obj;
+	Piece test;
+	Piece test2;
+	Piece test3;
+	Piece test4;
+	test = obj.dropPiece(0);
+	test2 = obj.dropPiece(1);
+	test3 = obj.dropPiece(2);
+	test4 = obj.dropPiece(3);
+	ASSERT_TRUE(test == ' ' && test2 == ' ' && test3 == ' ' && test4 == ' ');
 }
 
 TEST(PiezasTest, reset)
 {
-  Piezas obj;
-  Piece test;
-  obj.dropPiece(1);
-  obj.reset();
-  test = obj.pieceAt(0,1);
-  ASSERT_TRUE(test == ' ');
+	Piezas obj;
+	Piece test;
+	obj.dropPiece(1);
+	obj.reset();
+	test = obj.pieceAt(0,1);
+	ASSERT_TRUE(test == ' ');
 }
 
 TEST(PiezasTest, full_column)
 {
-  Piezas obj;
-  Piece test;
-  obj.dropPiece(0);
-  obj.dropPiece(0);
-  obj.dropPiece(0);
-  test = obj.dropPiece(0);
-  ASSERT_TRUE(test == '?');
+	Piezas obj;
+  	Piece test;
+  	obj.dropPiece(0);
+  	obj.dropPiece(0);
+  	obj.dropPiece(0);
+  	test = obj.dropPiece(0);
+  	ASSERT_TRUE(test == '?');
 }
 
 TEST(PiezasTest, gamestate0){
-  Piezas board;
-  board.dropPiece(0);
+  	Piezas board;
+  	board.dropPiece(0);
 	ASSERT_EQ(board.gameState(), Invalid);
 }
 
+
+//  X O X O 
+//  X X O O 
+//	X O O X
+
+TEST(PiezasTest, gamestate1){
+	Piezas board;
+	board.dropPiece(0);
+	board.dropPiece(1);
+	board.dropPiece(0);
+	board.dropPiece(2);
+	board.dropPiece(0);
+	board.dropPiece(2);
+	board.dropPiece(1);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(3);
+	board.dropPiece(3);
+	board.dropPiece(3);
+
+	board.dropPiece
+	ASSERT_EQ(board.gameState(), X);
+}
