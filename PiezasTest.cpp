@@ -115,7 +115,5 @@ TEST(PiezasTest, gamestate1){
 	board.dropPiece(3);
 	board.dropPiece(3);
 	board.dropPiece(3);
-
-	board.dropPiece
 	ASSERT_EQ(board.gameState(), X);
 }
