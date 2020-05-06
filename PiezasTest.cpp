@@ -68,3 +68,13 @@ TEST(PiezasTest, checkDrop)
   test4 = obj.dropPiece(3);
   ASSERT_TRUE(test == ' ' && test2 == ' ' && test3 == ' ' && test4 == ' ');
 }
+
+TEST(PiezasTest, reset)
+{
+  Piezas obj;
+  Piece test;
+  obj.dropPiece(1);
+  obj.reset();
+  test = obj.pieceAt(0,1);
+  ASSERT_TRUE(test == ' ');
+}
