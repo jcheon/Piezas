@@ -55,9 +55,16 @@ TEST(PiezasTest, drop_ofb)
 	ASSERT_EQ(board.dropPiece(-1), Invalid);
 }
 
-TEST(PiezasTest, pieceat0)
+TEST(PiezasTest, checkDrop)
 {
-	Piezas board;
-	board.dropPiece(0);
-	ASSERT_EQ(board.pieceAt(2,0), X );
+  Piezas obj;
+  Piece test;
+  Piece test2;
+  Piece test3;
+  Piece test4;
+  test = obj.dropPiece(0);
+  test2 = obj.dropPiece(1);
+  test3 = obj.dropPiece(2);
+  test4 = obj.dropPiece(3);
+  ASSERT_TRUE(test == ' ' && test2 == ' ' && test3 == ' ' && test4 == ' ');
 }
