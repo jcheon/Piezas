@@ -15,14 +15,18 @@ class PiezasTest : public ::testing::Test
 };
 
 TEST(PiezasTest, blank0){
-  Piezas board;
+  	Piezas board;
 	ASSERT_EQ(board.pieceAt(0, 0), Blank);
 }
 
 TEST(PiezasTest, blank1){
-  Piezas board;
+  	Piezas board;
 	ASSERT_EQ(board.pieceAt(0, 1), Blank);
 }
 
+TEST(PiezasTest, ofb){
+  	Piezas board;
+	ASSERT_EQ(board.pieceAt(0, 4), Invalid);
+}
 
 
