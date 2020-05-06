@@ -46,5 +46,18 @@ TEST(PiezasTest, ofb2){
 
 TEST(PiezasTest, drop0){
   	Piezas board;
-	ASSERT_EQ(board.dropPiece(0), return Blank);
+	ASSERT_EQ(board.dropPiece(0), Blank);
+}
+
+TEST(PiezasTest, drop_ofb)
+{
+	Piezas board;
+	ASSERT_EQ(board.dropPiece(-1), Invalid);
+}
+
+TEST(PiezasTest, pieceat0)
+{
+	Piezas board;
+	board.dropPiece(0,0);
+	ASSERT_EQ(board.pieceAt(0,0), X )
 }
