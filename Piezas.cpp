@@ -1,7 +1,7 @@
 #include "Piezas.h"
 #include <gtest/gtest.h>
 #include <vector>
-using namespace std;
+using std::vector;
 
 /** CLASS Piezas
  * Class for representing a Piezas vertical board, which is roughly based
@@ -26,10 +26,7 @@ using namespace std;
 Piezas::Piezas()
 {
     turn = X;
-    board.resize(BOARD_COLS, vector<Piece>(BOARD_ROWS));
-    for(int i = 0; i < BOARD_ROWS; i++)
-        for(int j = 0; j < BOARD_COLS; j++)
-            board[i][j] = Blank;
+    board = {{Blank, Blank, Blank, Blank}, {Blank, Blank, Blank, Blank},{Blank, Blank, Blank, Blank}};
 
 }
 
