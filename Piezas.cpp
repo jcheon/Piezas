@@ -1,4 +1,5 @@
 #include "Piezas.h"
+#include <gtest/gtest.h>
 #include <vector>
 /** CLASS Piezas
  * Class for representing a Piezas vertical board, which is roughly based
@@ -22,6 +23,12 @@
 **/
 Piezas::Piezas()
 {
+    turn = X;
+    board.resize(BOARD_COLS, vector<Piece>(BOARD_ROWS));
+    for(int i = 0; i < BOARD_ROWS; i++)
+        for(int j = 0; j < BOARD_COLS; j++)
+            board[i][j] = Blank;
+
 }
 
 /**
@@ -30,6 +37,9 @@ Piezas::Piezas()
 **/
 void Piezas::reset()
 {
+    for(int i = 0; i < BOARD_ROWS; i++)
+        for(int j = 0; j < BOARD_COLS; j++)
+            board[i][j] = Blank;
 }
 
 /**
@@ -42,7 +52,23 @@ void Piezas::reset()
 **/ 
 Piece Piezas::dropPiece(int column)
 {
-    return Blank;
+    if(column<0 || column>3) 
+        return Invalid;
+
+    for(int i = 0; i < 3; i++)
+    {
+    if(board[i][column] == Blank)
+    {
+        board[i][column] = turn;
+        if(turn == X)
+            turn = O;
+        else
+            turn = X;
+        return Blank; //Open spot found
+    }
+
+    }
+    return Invalid; //No spot found, column full
 }
 
 /**
@@ -51,7 +77,9 @@ Piece Piezas::dropPiece(int column)
 **/
 Piece Piezas::pieceAt(int row, int column)
 {
-    return Blank;
+    if((row<0 || row>2) && (column<0 || column>3)) 
+        return Blank;
+    return board[row][column];
 }
 
 /**
@@ -65,5 +93,35 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
-    return Blank;
+    for(int i=0; i<3; i++){
+        for(int j=0; j<4; j++){
+            if(board[i][j] == Blank) return Invalid;
+        }
+    }
+    int numX = 0, numO = 0, runningTotal = 0;
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            if(board[i][j]==board[i][j+1]){
+                runningTotal++;
+            if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+            else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+            }
+            else runningTotal = 0;
+    }
+  }
+
+    for(int j=0; j<4; j++){
+        for(int i=0; i<2; i++){
+            if(board[i][j]==board[i+1][j]){
+                runningTotal++;
+                if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
+                else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+            }
+            else runningTotal = 0;
+        }
+    }
+    if(numX == numO) return Blank;
+    else if(numX>numO) return X;
+    else return O;
+
 }
