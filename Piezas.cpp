@@ -26,7 +26,9 @@ using std::vector;
 Piezas::Piezas()
 {
     turn = X;
-    board = {{Blank, Blank, Blank, Blank}, {Blank, Blank, Blank, Blank},{Blank, Blank, Blank, Blank}};
+    board = {{Blank, Blank, Blank, Blank}, 
+            {Blank, Blank, Blank, Blank},
+            {Blank, Blank, Blank, Blank}};
 
 }
 
@@ -56,14 +58,14 @@ Piece Piezas::dropPiece(int column)
 
     for(int i = 0; i < 3; i++)
     {
-    if(board[i][column] == Blank)
-    {
-        board[i][column] = turn;
-        if(turn == X)
-            turn = O;
-        else
-            turn = X;
-        return Blank; //Open spot found
+        if(board[i][column] == Blank)
+        {
+            board[i][column] = turn;
+            if(turn == O)
+                turn = X;
+            else
+                turn = O;
+            return Blank; //Open spot found
     }
 
     }
@@ -92,35 +94,45 @@ Piece Piezas::pieceAt(int row, int column)
 **/
 Piece Piezas::gameState()
 {
+    // check if board is filled
     for(int i=0; i<3; i++){
         for(int j=0; j<4; j++){
-            if(board[i][j] == Blank) return Invalid;
+            if(board[i][j] == Blank) 
+                return Invalid;
         }
     }
-    int numX = 0, numO = 0, runningTotal = 0;
+
+    // count vertically
+    int X_count = 0, O_count = 0, runningTotal = 0;
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
             if(board[i][j]==board[i][j+1]){
                 runningTotal++;
-            if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-            else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+                if(board[i][j]==X && runningTotal>X_count) 
+                    X_count = runningTotal;
+                else if(board[i][j]==O && runningTotal>O_count) 
+                    O_count = runningTotal;
             }
             else runningTotal = 0;
     }
   }
 
+    //count horizontally
     for(int j=0; j<4; j++){
         for(int i=0; i<2; i++){
             if(board[i][j]==board[i+1][j]){
                 runningTotal++;
-                if(board[i][j]==X && runningTotal>numX) numX = runningTotal;
-                else if(board[i][j]==O && runningTotal>numO) numO = runningTotal;
+                if(board[i][j]==X && runningTotal>X_count) 
+                    X_count = runningTotal;
+                else if(board[i][j]==O && runningTotal>O_count) 
+                    O_count = runningTotal;
             }
             else runningTotal = 0;
         }
     }
-    if(numX == numO) return Blank;
-    else if(numX>numO) return X;
+
+    if(X_count == O_count) return Blank;
+    else if(X_count>O_count) return X;
     else return O;
 
 }
