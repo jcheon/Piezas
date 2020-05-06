@@ -59,5 +59,5 @@ TEST(PiezasTest, pieceat0)
 {
 	Piezas board;
 	board.dropPiece(0);
-	ASSERT_EQ(board.pieceAt(2,0), X )
+	ASSERT_EQ(board.pieceAt(2,0), X );
 }
