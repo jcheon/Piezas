@@ -78,3 +78,14 @@ TEST(PiezasTest, reset)
   test = obj.pieceAt(0,1);
   ASSERT_TRUE(test == ' ');
 }
+
+TEST(PiezasTest, full_column)
+{
+  Piezas obj;
+  Piece test;
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  obj.dropPiece(0);
+  test = obj.dropPiece(0);
+  ASSERT_TRUE(test == '?');
+}
