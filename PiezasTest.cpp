@@ -89,3 +89,10 @@ TEST(PiezasTest, full_column)
   test = obj.dropPiece(0);
   ASSERT_TRUE(test == '?');
 }
+
+TEST(PiezasTest, gamestate0){
+  Piezas board;
+  board.dropPiece(0);
+	ASSERT_EQ(board.gameState(), Invalid);
+}
+
