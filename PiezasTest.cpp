@@ -24,29 +24,5 @@ TEST(PiezasTest, blank1){
 	ASSERT_EQ(board.pieceAt(0, 1), Blank);
 }
 
-TEST(PiezasTest, blank2){
-  Piezas board;
-	ASSERT_EQ(board.pieceAt(0, 2), Blank);
-}
-
-TEST(PiezasTest, blank3){
-  Piezas board;
-	ASSERT_EQ(board.pieceAt(0, 4), Blank);
-}
-
-TEST(PiezasTest, blank4){
-  Piezas board;
-	ASSERT_EQ(board.pieceAt(1, 0), Blank);
-}
-
-TEST(PiezasTest, blank5){
-  Piezas board;
-	ASSERT_EQ(board.pieceAt(1, 1), Blank);
-}
-
-TEST(PiezasTest, pieceat_ofb){
-  Piezas board;
-	ASSERT_EQ(board.pieceAt(0, 5), Invalid);
-}
 
 
