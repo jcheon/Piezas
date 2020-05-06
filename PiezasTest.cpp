@@ -26,7 +26,7 @@ TEST(PiezasTest, blank1){
 
 TEST(PiezasTest, ofb){
   	Piezas board;
-	ASSERT_EQ(board.pieceAt(0, 4), Invalid);
+	ASSERT_EQ(board.pieceAt(-1, 0), Invalid);
 }
 
 
