@@ -97,23 +97,21 @@ TEST(PiezasTest, gamestate0){
 }
 
 
-//  X O X O 
-//  X X O O 
-//	X O O X
 
-TEST(PiezasTest, gamestate1){
+
+TEST(PiezasTest, XWins){
 	Piezas board;
-	board.dropPiece(0);
-	board.dropPiece(1);
-	board.dropPiece(0);
-	board.dropPiece(2);
-	board.dropPiece(0);
-	board.dropPiece(2);
-	board.dropPiece(1);
 	board.dropPiece(1);
 	board.dropPiece(2);
 	board.dropPiece(3);
+	board.dropPiece(1);
+	board.dropPiece(2);
+	board.dropPiece(2);
+	board.dropPiece(0);
+	board.dropPiece(1);
 	board.dropPiece(3);
 	board.dropPiece(3);
+	board.dropPiece(0);
+	board.dropPiece(0);
 	ASSERT_EQ(board.gameState(), X);
 }
