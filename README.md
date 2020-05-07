@@ -1,7 +1,7 @@
 # Piezas
 [![Build Status](https://travis-ci.org/jcheon/Piezas.svg?branch=master)](https://travis-ci.org/jcheon/Piezas)
 
-[![Coverage Status](https://coveralls.io/repos/github/jcheon/Piezas/badge.svg?branch=master)](https://coveralls.io/github/jcheon/Piezas?branch=master&service=github)
+[![Coverage Status](https://coveralls.io/repos/github/jcheon/Piezas/badge.svg)](https://coveralls.io/github/jcheon/Piezas)
 
 
 ## Associated Enumerated Types
