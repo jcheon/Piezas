@@ -209,36 +209,3 @@ TEST(PiezasTest, o_win){
 	board.dropPiece(1);
 	ASSERT_EQ(board.gameState(), O);
 }
-
-TEST(PiezasTest, x_win){
-	Piezas board;
-	board.dropPiece(1);
-	board.dropPiece(2);
-	board.dropPiece(3);
-	board.dropPiece(1);
-	board.dropPiece(2);
-	board.dropPiece(2);
-	board.dropPiece(0);
-	board.dropPiece(1);
-	board.dropPiece(3);
-	board.dropPiece(3);
-	board.dropPiece(0);
-	board.dropPiece(0);
-	ASSERT_EQ(board.gameState(), X);
-}
-
-TEST(PiezasTest, wrong){
-  	Piezas board;
-	board.dropPiece(1);
-	board.dropPiece(2);
-	board.dropPiece(3);
-	board.dropPiece(1);
-	board.dropPiece(2);
-	board.dropPiece(2);
-	board.dropPiece(0);
-	board.dropPiece(1);
-	board.dropPiece(3);
-	board.dropPiece(3);
-	board.dropPiece(0);
-	ASSERT_EQ(board.gameState(), Invalid);
-}
