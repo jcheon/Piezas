@@ -173,5 +173,5 @@ TEST(Piezas, tie)
 	board.dropPiece(2);
 	board.dropPiece(3);
 	board.dropPiece(3);
-	ASSERT_EQ(board.gameState(), Blank)
+	ASSERT_EQ(board.gameState(), Blank);
 }
