@@ -177,8 +177,8 @@ TEST(Piezas, tie)
 }
 
 TEST(PiezasTest, tie1){
-  Piezas board;
-  board.dropPiece(0);
+	Piezas board;
+	board.dropPiece(0);
 	board.dropPiece(1);
 	board.dropPiece(2);
 	board.dropPiece(3);
@@ -194,8 +194,8 @@ TEST(PiezasTest, tie1){
 }
 
 TEST(PiezasTest, o_win){
-  Piezas board;
-  board.dropPiece(0);
+	Piezas board;
+	board.dropPiece(0);
 	board.dropPiece(1);
 	board.dropPiece(1);
 	board.dropPiece(2);
@@ -211,8 +211,8 @@ TEST(PiezasTest, o_win){
 }
 
 TEST(PiezasTest, x_win){
-  Piezas board;
-  board.dropPiece(1);
+	Piezas board;
+	board.dropPiece(1);
 	board.dropPiece(2);
 	board.dropPiece(3);
 	board.dropPiece(1);
@@ -228,7 +228,7 @@ TEST(PiezasTest, x_win){
 }
 
 TEST(PiezasTest, wrong){
-  Piezas board;
+  	Piezas board;
 	board.dropPiece(1);
 	board.dropPiece(2);
 	board.dropPiece(3);
